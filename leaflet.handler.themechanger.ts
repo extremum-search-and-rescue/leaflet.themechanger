@@ -1,23 +1,28 @@
 ﻿namespace L {
+    export type BasemapTheme = "dark" | "light"
+    export type MapContainerTheme = "gis-theme-light" | "gis-theme-dark";
+
     export interface MapOptions {
-        baseLayerTheme: string;
+        baseLayerTheme: BasemapTheme;
         themeChanger: boolean;
         baseLayerThemesAvailable: Array<string>
     }
+    export type ThemeChangedEvent = { new: MapContainerTheme, old?: MapContainerTheme };
+    export type ThemeChangerFn = (e: ThemeChangedEvent) => void
     export interface Evented {
-        fire(type: "themechanged", fn: (e: { new: string, old?: string }) => void): this;
-        on(type: "themechanged", fn: (e: { new: string, old?: string }) => void, context: L.Map) : this
-        off(type: "themechanged", fn?: (e: { new: string, old?: string }) => void, context?: L.Map) : this
+        fire(type: "themechanged", fn: ThemeChangerFn): this;
+        on(type: "themechanged", fn: ThemeChangerFn, context: L.Map) : this
+        off(type: "themechanged", fn?: ThemeChangerFn, context?: L.Map) : this
 
         fire(type: "applytheme", fn: (element: HTMLElement) => HTMLElement): this;
         on(type: "applytheme", fn: (element: HTMLElement) => HTMLElement, context: L.Map): this
         off(type: "applytheme", fn?: (element: HTMLElement) => HTMLElement, context?: L.Map) : this
     }
     export interface TileLayerOptions extends L.GridLayerOptions {
-        theme?: string;
+        theme?: BasemapTheme;
     }
     export interface Map extends Evented {
-        getTheme?(): string;
+        getTheme?(): BasemapTheme;
     }
     export namespace Handler { 
         export class ThemeChanger extends L.Handler {

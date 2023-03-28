@@ -1,0 +1,34 @@
+﻿.leaflet-container.gis-theme-light {
+    background: #ddd;
+}
+
+.leaflet-container.gis-theme-dark {
+    background: #333;
+}
+
+.gis-theme-light .leaflet-control-layers
+.gis-theme-light .leaflet-bar {
+    border: 2px solid rgba(0,0,0,0.2);
+}
+.gis-theme-dark .leaflet-control-layers.leaflet-control,
+.gis-theme-dark .leaflet-bar {
+    border: 2px solid rgba(255,255,255,0.1);
+}
+
+.gis-theme-light .leaflet-control-scale-line {
+    color: rgba(0,0,0,1);
+    border-bottom: 1px solid rgba(255,255,255,0.9);
+    border-right: 1px solid rgba(255,255,255,0.9);
+    border-left: 1px solid rgba(255,255,255,0.9);
+    box-shadow: 1px 1px 0px black, -1px 1px 0px black;
+    text-shadow: 1px 1px 1px white, -1px 1px 1px white, 1px -1px 1px white, -1px -1px 1px white;
+}
+
+.gis-theme-dark .leaflet-control-scale-line {
+    color: rgba(255,255,255,1);
+    border-bottom: 1px solid rgba(0,0,0,0.9);
+    border-right: 1px solid rgba(0,0,0,0.9);
+    border-left: 1px solid rgba(0,0,0,0.9);
+    box-shadow: 1px 1px 0px white, -1px 1px 0px white;
+    text-shadow: 1px 1px 1px black, -1px 1px 1px black, 1px -1px 1px black, -1px -1px 1px black;
+}
